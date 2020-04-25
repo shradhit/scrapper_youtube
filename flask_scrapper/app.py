@@ -95,16 +95,6 @@ def form_data():
 
 
 
-    #for f in files:
-    #    if f.endswith('vtt') or f.endswith('json') or f.endswith('wav'):
-    #        shutil.copy(f, dest)
-    #        os.remove(f)
-    #    else:
-            # print(str(df['title']))
-    #        continue
-    #files_dest = os.listdir(dest)
-
-
 
     sub_titles = glob.glob('./down/' + file_image + '.en.vtt')
     print(sub_titles)
