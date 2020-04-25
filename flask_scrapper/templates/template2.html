@@ -49,10 +49,9 @@ body {font-family: "Lato", sans-serif}
 
   <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:80%" id="analyzer">
     <h2 class="w3-wide"> YOUTUBE SENTIMENT ANALYZER</h2>
-    <p class="w3-opacity"><i>We love music</i></p>
-    <p class="w3-justify">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
-      adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p class="w3-opacity"><i> Sentiment Analyser </i></p>
+    <p class="w3-justify">We have created a framework that scrapes text data from the YouTube video and performs Sentiment Analysis on it. This tool
+    can be used to understand the psychology negative sentiments of patients and healthcare providers by displaying a list of the following Sentiment outputs.</p>
     <div class="w3-row w3-padding-32">
       <!--<form method="POST">
           <input name="link" class="w3-input w3-border" type="text" placeholder="ENTER THE URL" required name="Message">
@@ -62,7 +61,7 @@ body {font-family: "Lato", sans-serif}
 	  <!--<iframe id = "youtube-link" width="420" height="345"></iframe>-->
 
 
-      <style>
+  <style>
   table, th, td { width:0%;
     border: 1px solid black;
     border-collapse: collapse;
@@ -80,11 +79,15 @@ body {font-family: "Lato", sans-serif}
 
   <!--Left Table-->
 
-  <table style="margin-left:auto;
-    margin-right:auto; width:50%;align:"middle"">
+  <table style="margin-left:auto; margin-right:auto; width:50%;align:"middle"">
     <tr>
       <th>Description</th>
       <th>Value</th>
+    </tr>
+    <tr>
+      <td style="text-align:center">
+        Video Title</td>
+      <td style="text-align:center">{{v11}}</td>
     </tr>
     <tr>
       <td style="text-align:center">
@@ -141,13 +144,13 @@ body {font-family: "Lato", sans-serif}
 
 
 
-
-
 <div>
-    <img src="{{ url_for('static', filename = graph_one) }}" alt="User Image" width="50%" height="70%" style="left:30px; padding:30px" align="middle">
-    <img src="{{ url_for('static', filename = graph_two) }}" alt="User Image" width="90%" height="70%" style="padding:30px" align="middle">
-    <img src="{{ url_for('static', filename = graph_three) }}" alt="User Image" width="50%" height="70%" style="padding:30px" align="middle">
-  </div>
+
+    <img src="{{ url_for('static', filename = graph_one) }}" alt="User Image" width="65%" height="65%" style="left:20px; padding:30px" align="middle">
+    <img src="{{ url_for('static', filename = graph_two) }}" alt="User Image" width="90%" height="60%" style="padding:30px" align="middle">
+    <img src="{{ url_for('static', filename = graph_three) }}" alt="User Image" width="50%" height="80%" style="padding:30px" align="middle">
+
+</div>
 
 
 
@@ -258,11 +261,6 @@ document.getElementById("output").style.display = "block";
         }
 
 
-
-
-
-
-//
 
 
 

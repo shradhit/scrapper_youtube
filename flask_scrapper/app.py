@@ -44,7 +44,6 @@ def form_data():
         link = request.form['link']
         if validators.url(link):
             link_received = link
-            #main_(link_received)
         else:
             return render_template("template3.html")
 
@@ -75,7 +74,7 @@ def form_data():
     filtered_d = dict((k, meta[k]) for k in keys if k in meta)
     df = pd.DataFrame.from_dict(filtered_d, orient='index').T
     df.index = df['title']
-    print(meta['title'])
+    title = meta['title']
     files = os.listdir(source)
 
     for f in files:
@@ -157,7 +156,7 @@ def form_data():
                                 'overall_polarity', 'Start_time', 'End_time']
 
         sentiment_df['Sentiment'] = ['Positive' if w>0 else 'Negative' if w<0 else 'Neutral' for w in sentiment_df['overall_polarity']]
-        abcd = sentiment_df.to_json()
+        #abcd = sentiment_df.to_json()
         print('DONE 6')
 
         ######## Sentiment Outputs #############
@@ -167,9 +166,10 @@ def form_data():
 
         # Total sentences in the video
         total_sentences = sentiment_df.shape[0]
-        positive_sentences = round(sentiment_df[sentiment_df['overall_polarity']>0].shape[0]/total_sentences,2)*100
-        neutral_sentences = round(sentiment_df[sentiment_df['overall_polarity'] == 0].shape[0]/total_sentences,2)*100
-        negative_sentences = round(sentiment_df[sentiment_df['overall_polarity'] < 0].shape[0]/total_sentences,2)*100
+        positive_sentences_ = round(sentiment_df[sentiment_df['overall_polarity']>0].shape[0]/total_sentences, 2)
+        positive_sentences = round(positive_sentences_ * 100, 2)
+        neutral_sentences = round(sentiment_df[sentiment_df['overall_polarity'] == 0].shape[0]/total_sentences, 2)*100
+        negative_sentences = round(sentiment_df[sentiment_df['overall_polarity'] < 0].shape[0]/total_sentences, 2)*100
 
 
         duration = round(df['duration'][0]/60,2)
@@ -180,17 +180,20 @@ def form_data():
 
         # Distribution
         distribution_df = sentiment_df
-
+        list_color = ["r","g",'y']
+        index = 0
         fig,ax = plt.subplots(figsize=(10,5))
         for group in distribution_df.Sentiment.unique():
-            sns_distplot = sns.distplot(distribution_df.loc[distribution_df.Sentiment==group,'overall_polarity'],kde=False,ax=ax,label=group)
+            sns_distplot = sns.distplot(distribution_df.loc[distribution_df.Sentiment==group,'overall_polarity'],kde=False,ax=ax,label=group, color=list_color[index])
+            index = index + 1
         plt.legend()
         plt.xlabel('Polarity Score')
         plt.ylabel('Number of sentences')
-        plt.title('Distribution of the polarity score of the entire video')
+        plt.title('Distribution of the polarity score of the entire video', weight='bold')
 
         fig1 = sns_distplot.get_figure()
         img_save1 = file_image + "one.png"
+
         fig1.savefig("static/" + img_save1)
 
         print('DONE 6.5')
@@ -200,7 +203,7 @@ def form_data():
 
         plt.figure(figsize=(16,5))
         sns_plot = sns.heatmap(data=heatmap_polarity.T, robust=True, cmap='RdYlGn',yticklabels=False, xticklabels=5, cbar=True, cbar_kws={"orientation": "horizontal"})
-        plt.title('Heatmap reflecting the change in polarity of the speech')
+        plt.title('Heatmap reflecting the change in polarity of the speech', weight='bold')
         plt.xlabel('Sentences over time')
 
         fig2 = sns_plot.get_figure()
@@ -240,11 +243,15 @@ def form_data():
 
 
         # Plot the WordCloud image
+        #plt.title('Word Cloud', weight='bold')
+
         plt.figure(figsize=(8, 8), facecolor=None)
         plt.imshow(wordcloud)
         plt.axis('off')
         plt.tight_layout(pad=0)
-        img_save3 = file_image +"three.png"
+        plt.title("Word Cloud of Frequent Words", fontweight='bold')
+        img_save3 = file_image + "three.png"
+
         plt.savefig("static/" + img_save3)
 
         #return render_template("template.html", graph_one=img_save1, graph_two=img_save2)
@@ -252,7 +259,7 @@ def form_data():
 
         return render_template("template2.html", graph_one=img_save1, graph_two=img_save2,graph_three=img_save3,
                                v1=overall_sentiment,v2=total_sentences,v3=positive_sentences,v4=neutral_sentences,v5=negative_sentences,
-                               v6=duration, v7=view_count,v8=like_count,v9=dislike_count,v10=average_rating)
+                               v6=duration, v7=view_count,v8=like_count,v9=dislike_count,v10=average_rating, v11 = title)
     return render_template("template3.html")
 
 

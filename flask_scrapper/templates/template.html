@@ -8,8 +8,31 @@
 
 
 <style>
+
 body {font-family: "Lato", sans-serif}
 .mySlides {display: none}
+
+.loader {
+  border: 16px solid grey;
+  border-radius: 50%;
+  border-top: 16px solid #ffff;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 </style>
 
 
@@ -43,6 +66,7 @@ body {font-family: "Lato", sans-serif}
   <!--<div>
     <img src="{{url_for('static', filename = 'youtube.jpg')}}"  style="width:100%" >
 
+
   </div> -->
 
 
@@ -50,11 +74,12 @@ body {font-family: "Lato", sans-serif}
   <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="analyzer">
     <h2 class="w3-wide"> Youtube Sentiment Analyzer </h2>
     <p class="w3-opacity"><i> Sentiment makes fools of us all. - Traci Chee, Speaker </i></p>
-    <p class="w3-justify"> We are living in unprecedented times, all the news outlet's are  ...  with information.We want to identify the sentiment of the news on youtube using natural language processing.</p>
     <div class="w3-row w3-padding-32">
       <form method="POST">
           <input name="link" class="w3-input w3-border" type="text" placeholder="ENTER THE URL" required name="Message">
-          <button  id= "submit" class="w3-button w3-black w3-section w3-right">SUBMIT</button>
+          <button onclick="onSubmit();" id= "submit" class="w3-button w3-black w3-section w3-right">SUBMIT</button>
+          <div id = "loader" style="display:none;margin: 0 auto; margin-top: 40px;top:40px" class="loader"></div>
+
       </form>
 	  <br><br><br>
 
@@ -67,7 +92,7 @@ body {font-family: "Lato", sans-serif}
   <!-- The Tour Section -->
   <div class="w3-black" id="about">
     <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
-      <h2 class="w3-wide w3-center">Contributers</h2>
+      <h2 class="w3-wide w3-center">Contributors</h2>
       <p class="w3-opacity w3-center"><i></i></p><br>
 
     <!--<ul class="w3-ul w3-border w3-white w3-text-grey">
@@ -80,6 +105,8 @@ body {font-family: "Lato", sans-serif}
         <div class="w3-third w3-margin-bottom">
           <!--<img src="/w3images/newyork.jpg" alt="New York" style="width:100%" class="w3-hover-opacity">-->
           <div class="w3-container w3-white">
+          <img src="{{url_for('static', filename = 'Omkar_ZS_Image.jpg')}}"  style="width:95%"  height="230"  >
+
             <p><b>Omkar Mutreja</b></p>
             <p class="w3-opacity">Data Science Associate</p>
             <p>New York Office</p>
@@ -96,8 +123,9 @@ body {font-family: "Lato", sans-serif}
           </div>
         </div>-->
         <div class="w3-third w3-margin-bottom" style="float:right">
-          <!--<img src="/w3images/sanfran.jpg" alt="San Francisco" style="width:100%" class="w3-hover-opacity">-->
           <div class="w3-container w3-white">
+            <img src="{{url_for('static', filename = 'headshot-shradhitsubudhi.png')}}"  style="width:90%" height="230" >
+
             <p><b>Shradhit Subudhi</b></p>
             <p class="w3-opacity">Data Science Associate </p>
             <p>New York Office</p>
@@ -189,10 +217,10 @@ function myFunction() {
   }
 }
 
-//function onSubmit(){
+function onSubmit(){
 //  console.log('pqr')
-//  $('#output').show();
-//}
+ $('#loader').show();
+}
 // When the user clicks anywhere outside of the modal, close it
 var modal = document.getElementById('ticketModal');
 window.onclick = function(event) {
