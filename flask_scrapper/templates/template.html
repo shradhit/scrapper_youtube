@@ -39,26 +39,12 @@ body {font-family: "Lato", sans-serif}
 <body>
 
 <!-- Navbar -->
-<div class="w3-top">
-  <div class="w3-bar w3-black w3-card">
-    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <!--<a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>-->
-    <!--<a href="#analyzer" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ANALYZER</a>-->
-    <!--<a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABOUT</a>-->
-    <!--<a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>-- >
-    </div>
-</div>
 
 <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
-<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-  <!--<a href="#analyzer" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">ANALYZER</a> -->
-  <!--<a href="#about" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">ABOUT</a>-->
-  <!--<a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>-->
-  <!--<a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">MERCH</a>-->
-</div>
+
 
 <!-- Page content -->
-<div class="w3-content" style="max-width:2000px;margin-top:46px">
+<!--<div class="w3-content" style="max-width:2000px;margin-top:46px">==>
 
 
   <!-- Automatic Slideshow Images -->
@@ -81,9 +67,10 @@ body {font-family: "Lato", sans-serif}
           <div id = "loader" style="display:none;margin: 0 auto; margin-top: 40px;top:40px" class="loader"></div>
 
       </form>
-	  <br><br><br>
+    </div>
+  </div>
 
-<div>
+
 	  <!--<iframe id = "youtube-link" width="420" height="345"></iframe>-->
   <!--  onclick="onSubmit();"``<div id = "output" style="display:none">-->
 
@@ -93,7 +80,7 @@ body {font-family: "Lato", sans-serif}
   <div class="w3-black" id="about">
     <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
       <h2 class="w3-wide w3-center">Contributors</h2>
-      <p class="w3-opacity w3-center"><i></i></p><br>
+      <p class="w3-opacity w3-center"><i></i></p>
 
     <!--<ul class="w3-ul w3-border w3-white w3-text-grey">
         <li class="w3-padding">September <span class="w3-tag w3-red w3-margin-left">Sold out</span></li>
@@ -113,18 +100,10 @@ body {font-family: "Lato", sans-serif}
             <!--<button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>-->
           </div>
         </div>
-        <!--<div class="w3-third w3-margin-bottom">
-          <img src="/w3images/paris.jpg" alt="Paris" style="width:100%" class="w3-hover-opacity">
-          <div class="w3-container w3-white">
-            <p><b>Paris</b></p>
-            <p class="w3-opacity">Sat 28 Nov 2016</p>
-            <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-            <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
-          </div>
-        </div>-->
+
         <div class="w3-third w3-margin-bottom" style="float:right">
           <div class="w3-container w3-white">
-            <img src="{{url_for('static', filename = 'headshot-shradhitsubudhi.png')}}"  style="width:90%" height="230" >
+            <img src="{{url_for('static', filename = 'headshot-shradhitsubudhi.png')}}"  style="width:95%" height="230" >
 
             <p><b>Shradhit Subudhi</b></p>
             <p class="w3-opacity">Data Science Associate </p>
@@ -132,12 +111,13 @@ body {font-family: "Lato", sans-serif}
             <!--<button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>-->
           </div>
         </div>
+
       </div>
     </div>
   </div>
 
   <!-- Ticket Modal -->
-  <div id="ticketModal" class="w3-modal">
+  <!--<div id="ticketModal" class="w3-modal">
     <div class="w3-modal-content w3-animate-top w3-card-4">
       <header class="w3-container w3-teal w3-center w3-padding-32">
         <span onclick="document.getElementById('ticketModal').style.display='none'"
@@ -154,10 +134,10 @@ body {font-family: "Lato", sans-serif}
         <p class="w3-right">Need <a href="#" class="w3-text-blue">help?</a></p>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- The Contact Section -->
-  <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
+  <!--<div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">-->
     <!--<h2 class="w3-wide w3-center">CONTACT</h2>
 
 	 <div class="w3-row w3-padding-32">
@@ -177,10 +157,9 @@ body {font-family: "Lato", sans-serif}
 
 
 
-  </div>
+<!--  </div>-->
 
 <!-- End Page Content -->
-</div>
 
 <!-- Image of location/map -->
 
