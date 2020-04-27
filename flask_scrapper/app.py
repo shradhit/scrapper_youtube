@@ -245,7 +245,7 @@ def form_data():
 
         #return render_template("template.html", graph_one=img_save1, graph_two=img_save2)
         print(img_save1)
-        #delete_files(file_name)
+        #delete_files(file_image)
         return render_template("template2.html", graph_one=img_save1, graph_two=img_save2,graph_three=img_save3,
                                v1=overall_sentiment,v2=total_sentences,v3=positive_sentences,v4=neutral_sentences,v5=negative_sentences,
                                v6=duration, v7=view_count,v8=like_count,v9=dislike_count,v10=average_rating, v11 = title)
