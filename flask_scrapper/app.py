@@ -255,3 +255,14 @@ def form_data():
 def randomString(stringLength=8):
     letters = string.ascii_lowercase
     return ''.join(random.choice(letters) for i in range(stringLength))
+
+
+
+def delete_files(random_name):
+    dir_name = './down'
+    all_files = os.listdir(dir_name)
+    for item in all_files:
+        if item.statswith(random_name):
+            os.remove(os.path.join(dir_name, item))
+            print("Deleted {}" .format(item))
+    
