@@ -166,12 +166,27 @@ def form_data():
         
         negative_sentences = round(sentiment_df[sentiment_df['overall_polarity'] < 0].shape[0]/total_sentences, 2)*100
         negative_sentences = round(negative_sentences * 100, 2)
-
-        duration = round(df['duration'][0]/60,2)
-        view_count = df['view_count'][0]
-        like_count = df['like_count'][0]
-        dislike_count = df['dislike_count'][0]
-        average_rating = round(df['average_rating'][0],2)
+        
+        try :
+            duration = round(df['duration'][0]/60,2)
+        except: 
+            duration = 'Not Available'
+        try:
+            view_count = df['view_count'][0]
+        except: 
+            view_count = 'Not Available'
+        try:
+            like_count = df['like_count'][0]
+        except:
+            like_count = 'Not Available'
+        try: 
+            dislike_count = df['dislike_count'][0]
+        except: 
+            dislike_count = 'Not Available'
+        try:
+            average_rating = round(df['average_rating'][0],2)
+        except: 
+            average_rating = 'Not Available'
 
         # Distribution
         distribution_df = sentiment_df
