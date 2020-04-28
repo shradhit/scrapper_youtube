@@ -146,6 +146,9 @@ def form_data():
 
         sentiment_df['Sentiment'] = ['Positive' if w>0 else 'Negative' if w<0 else 'Neutral' for w in sentiment_df['overall_polarity']]
         #abcd = sentiment_df.to_json()
+        sentiment_df.drop_duplicates(subset='Statement',inplace=True)
+        sentiment_df.index = np.arange(0, len(sentiment_df))
+        
         print('DONE 6')
 
         ######## Sentiment Outputs #############
@@ -157,9 +160,12 @@ def form_data():
         total_sentences = sentiment_df.shape[0]
         positive_sentences_ = round(sentiment_df[sentiment_df['overall_polarity']>0].shape[0]/total_sentences, 2)
         positive_sentences = round(positive_sentences_ * 100, 2)
+        
         neutral_sentences = round(sentiment_df[sentiment_df['overall_polarity'] == 0].shape[0]/total_sentences, 2)*100
+        neutral_sentences = round(neutral_sentences * 100, 2)
+        
         negative_sentences = round(sentiment_df[sentiment_df['overall_polarity'] < 0].shape[0]/total_sentences, 2)*100
-
+        negative_sentences = round(negative_sentences * 100, 2)
 
         duration = round(df['duration'][0]/60,2)
         view_count = df['view_count'][0]
