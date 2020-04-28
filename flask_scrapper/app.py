@@ -161,10 +161,10 @@ def form_data():
         positive_sentences_ = round(sentiment_df[sentiment_df['overall_polarity']>0].shape[0]/total_sentences, 2)
         positive_sentences = round(positive_sentences_ * 100, 2)
         
-        neutral_sentences = round(sentiment_df[sentiment_df['overall_polarity'] == 0].shape[0]/total_sentences, 2)*100
+        neutral_sentences = round(sentiment_df[sentiment_df['overall_polarity'] == 0].shape[0]/total_sentences, 2)
         neutral_sentences = round(neutral_sentences * 100, 2)
         
-        negative_sentences = round(sentiment_df[sentiment_df['overall_polarity'] < 0].shape[0]/total_sentences, 2)*100
+        negative_sentences = round(sentiment_df[sentiment_df['overall_polarity'] < 0].shape[0]/total_sentences, 2)
         negative_sentences = round(negative_sentences * 100, 2)
         
         try :
