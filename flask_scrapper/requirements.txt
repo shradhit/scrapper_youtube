@@ -53,7 +53,7 @@ greenlet==0.4.15
 grpcio==1.20.1
 h5py==2.9.0
 hmmlearn==0.2.2
-httplib2==0.14.0
+httplib2==0.18.0
 idna==2.8
 imageio==2.5.0
 imbalanced-learn==0.4.3
