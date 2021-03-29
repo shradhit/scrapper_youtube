@@ -153,7 +153,7 @@ pydotplus==2.0.2
 PyDrive==1.3.1
 pydub==0.23.1
 PyGetWindow==0.0.7
-Pygments==2.4.0
+Pygments==2.7.4
 pymc3==3.8
 PyMsgBox==1.0.7
 pyobjc==5.2
