@@ -101,7 +101,7 @@ murmurhash==1.0.2
 music21==5.5.0
 musicnn==0.1.0
 myprosody==20
-nbconvert==5.5.0
+nbconvert==6.3.0
 nbformat==4.4.0
 ner-d==0.2.1
 netCDF4==1.5.3
